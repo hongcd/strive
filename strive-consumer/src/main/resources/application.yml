@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: consumer
+eureka:
+  instance:
+    hostname: consumer
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://eureka-server:6571/eureka/, http://eureka-server:6572/eureka/

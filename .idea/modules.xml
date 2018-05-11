@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/strive-common/strive-common.iml" filepath="$PROJECT_DIR$/strive-common/strive-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-consumer/strive-consumer.iml" filepath="$PROJECT_DIR$/strive-consumer/strive-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-dao/strive-dao.iml" filepath="$PROJECT_DIR$/strive-dao/strive-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-entity/strive-entity.iml" filepath="$PROJECT_DIR$/strive-entity/strive-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-eureka-server/strive-eureka-server.iml" filepath="$PROJECT_DIR$/strive-eureka-server/strive-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-parent/strive-parent.iml" filepath="$PROJECT_DIR$/strive-parent/strive-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-provider/strive-provider.iml" filepath="$PROJECT_DIR$/strive-provider/strive-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-service/strive-service.iml" filepath="$PROJECT_DIR$/strive-service/strive-service.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+server:
+  port: 6572
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:6571/eureka/
+spring:
+  application:
+    name: eureka-server-6572

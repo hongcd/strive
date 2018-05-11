@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>strive-dao</artifactId>
+    <name>Strive Dao</name>
+    <description>Strive数据访问层</description>
+
+    <parent>
+        <artifactId>strive-parent</artifactId>
+        <groupId>com.hongcd.strive</groupId>
+        <version>1.0.0</version>
+        <relativePath>../strive-parent/pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <strive.entity.version>1.0.0</strive.entity.version>
+        <mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
+        <druid.version>1.1.9</druid.version>
+        <mysql.connector.version>5.1.46</mysql.connector.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hongcd.strive</groupId>
+            <artifactId>strive-entity</artifactId>
+            <version>${strive.entity.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongcd.strive</groupId>
+            <artifactId>strive-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+</project>
