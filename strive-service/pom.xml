@@ -11,7 +11,7 @@
         <artifactId>strive-parent</artifactId>
         <groupId>com.hongcd.strive</groupId>
         <version>1.0.0</version>
-        <relativePath/>
+        <relativePath>../strive-parent/pom.xml</relativePath>
     </parent>
 
     <properties>
