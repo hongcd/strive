@@ -1,4 +1,4 @@
-package com.hongcd.strive.provider;
+package com.hongcd.strive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

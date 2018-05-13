@@ -13,6 +13,12 @@
     <description>Strive父工程</description>
     <url>http://www.strive.com</url>
 
+    <modules>
+        <module>../strive-common</module>
+        <module>../strive-dao</module>
+        <module>../strive-service</module>
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>

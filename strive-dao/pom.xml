@@ -23,20 +23,13 @@
     <dependencies>
         <dependency>
             <groupId>com.hongcd.strive</groupId>
-            <artifactId>strive-entity</artifactId>
-            <version>${strive.entity.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.hongcd.strive</groupId>
             <artifactId>strive-common</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.spring.boot.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
