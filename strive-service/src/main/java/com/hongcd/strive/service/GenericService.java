@@ -14,4 +14,11 @@ public interface GenericService<T, ID extends Serializable> {
      * @return
      */
     List<T> listAll();
+
+    /**
+     * id获取
+     * @param id
+     * @return
+     */
+    T getById(ID id);
 }

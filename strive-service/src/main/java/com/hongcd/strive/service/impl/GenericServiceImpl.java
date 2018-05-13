@@ -1,7 +1,7 @@
 package com.hongcd.strive.service.impl;
 
-import com.hongcd.strive.dao.GenericRepository;
 import com.hongcd.strive.service.GenericService;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,9 +20,14 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
         return repository().findAll();
     }
 
+    @Override
+    public T getById(ID id) {
+        return repository().findOne(id);
+    }
+
     /**
      * 获取通用DAO库
      * @return
      */
-    protected abstract GenericRepository<T, ID> repository();
+    protected abstract JpaRepository<T, ID> repository();
 }
