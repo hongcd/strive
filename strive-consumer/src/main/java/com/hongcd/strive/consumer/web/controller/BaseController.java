@@ -1,4 +1,4 @@
-package com.hongcd.strive.provider.web.controller;
+package com.hongcd.strive.consumer.web.controller;
 
 import com.hongcd.strive.common.constant.Config;
 import com.hongcd.strive.common.utils.Response;
@@ -20,11 +20,15 @@ public class BaseController {
         return render(Response.FAIL, message, null);
     }
 
+    protected Response render(int code,  Object data) {
+        return render(code, null, data);
+    }
+
     protected Response render(int code, String message, Object data) {
         return new Response(code, message, data).setServerInfo(config.getServerName(), config.getServerPort());
     }
 
-    protected Response render(int code,  Object data) {
-        return render(code, null, data);
+    protected Response render(Response response) {
+        return response.setServerInfo(config.getServerName(), config.getServerPort());
     }
 }

@@ -1,16 +1,15 @@
 package com.hongcd.strive.entity;
 
+import com.hongcd.strive.entity.book.Book;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class BaseEntity {
+public abstract class BaseEntity implements Serializable {
     @Id
     @Getter @Setter
     @GenericGenerator(name = "uuid", strategy = "uuid")

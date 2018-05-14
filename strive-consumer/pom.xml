@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>com.hongcd.strive</groupId>
-            <artifactId>strive-common</artifactId>
+            <artifactId>strive-service</artifactId>
             <version>${project.version}</version>
         </dependency>
 
