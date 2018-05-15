@@ -13,5 +13,5 @@ public interface BookServiceExtension {
 
     Future<Book> getById(String id);
 
-    List<Book> listAll(Collection<String> ids);
+    List<Book> listByIds(Collection<String> ids);
 }

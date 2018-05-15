@@ -42,8 +42,8 @@ public class BookServiceExtensionImpl implements BookServiceExtension {
     }
 
     @Override
-    public List<Book> listAll(Collection<String> ids) {
-        log.info(String.format("listAll thread: %s", Thread.currentThread().getName()));
+    public List<Book> listByIds(Collection<String> ids) {
+        log.info(String.format("listByIds thread: %s", Thread.currentThread().getName()));
         return Arrays.asList(restTemplate.getForObject("http://PROVIDER/book/listByIds", Book[].class, ids));
     }
 

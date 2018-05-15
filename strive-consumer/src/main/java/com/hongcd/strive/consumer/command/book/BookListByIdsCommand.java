@@ -19,7 +19,7 @@ public class BookListByIdsCommand extends HystrixCommand<List<Book>> {
     }
 
     @Override
-    protected List<Book> run() throws Exception {
-        return bookServiceExtension.listAll(bookIds);
+    protected List<Book> run() {
+        return bookServiceExtension.listByIds(bookIds);
     }
 }
