@@ -12,6 +12,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Log4j
 @Aspect
 @Component
@@ -30,15 +32,19 @@ public class ControllerAspect {
 
     @Around("controller()")
     public Response throwsExceptionAfterEditResponse(ProceedingJoinPoint joinPoint) {
+        Response response = null;
         try {
-            return (Response) joinPoint.proceed();
+            response = (Response) joinPoint.proceed();
         } catch (Throwable throwable) {
             if (throwable instanceof BusinessException) {
                 log.error(throwable.getMessage());
             } else {
                 log.error(String.format("Fail to %s, msg: %s", joinPoint.getTarget().getClass().getName() + ((MethodSignature) joinPoint.getSignature()).getMethod().getName(), throwable.getMessage()), throwable);
             }
-            return new Response(Response.FAIL, throwable.getMessage(), null).setServerInfo(config.getServerName(), config.getServerPort());
+            response = new Response(Response.FAIL, throwable.getMessage(), null);
+        } finally {
+            Objects.requireNonNull(response).setServerInfo(config.getServerName(), config.getServerPort());
         }
+        return response;
     }
 }

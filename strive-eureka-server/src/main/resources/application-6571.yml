@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:6572/eureka
+      defaultZone: http://hongcd:123456@${eureka.instance.hostname}:6572/eureka
 spring:
   application:
     name: eureka-server-6571

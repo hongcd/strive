@@ -12,7 +12,11 @@ public class BaseController {
     @Autowired
     protected Config config;
 
-    protected Response renderSuccess(Object data) {
+    protected Response renderSuccess() {
+        return renderSuccess(null);
+    }
+
+    protected <T> Response<T> renderSuccess(T data) {
         return render(Response.SUCCESS, data);
     }
 
@@ -20,15 +24,15 @@ public class BaseController {
         return render(Response.FAIL, message, null);
     }
 
-    protected Response render(int code,  Object data) {
+    protected <T> Response<T> render(int code,  T data) {
         return render(code, null, data);
     }
 
-    protected Response render(int code, String message, Object data) {
-        return new Response(code, message, data).setServerInfo(config.getServerName(), config.getServerPort());
+    protected <T> Response<T> render(int code, String message, T data) {
+        return new Response<>(code, message, data);
     }
 
     protected Response render(Response response) {
-        return response.setServerInfo(config.getServerName(), config.getServerPort());
+        return response;
     }
 }

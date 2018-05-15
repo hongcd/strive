@@ -7,29 +7,28 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Data
-public class Response implements Serializable {
+public class Response<T> implements Serializable {
     public static int SUCCESS = 1;
     public static int FAIL = 0;
 
     private Integer code;
     private String message;
-    private Object data;
+    private T data;
     private int invokeCount;
     private List<ServerInfo> serverInfoLinks = new LinkedList<>();
 
     public Response() {}
-    public Response(Integer code, Object data) {
+    public Response(Integer code, T data) {
         this.code = code;
         this.data = data;
     }
-    public Response(Integer code, String message, Object data) {
+    public Response(Integer code, String message, T data) {
         this(code, data);
         this.message = message;
     }
 
-    public Response setServerInfo(String serverName, Integer serverPort) {
+    public void setServerInfo(String serverName, Integer serverPort) {
         serverInfoLinks.add(new ServerInfo(serverName, serverPort, ++invokeCount));
-        return this;
     }
 
     @Data

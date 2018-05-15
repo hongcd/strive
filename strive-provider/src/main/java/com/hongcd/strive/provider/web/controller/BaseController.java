@@ -21,7 +21,7 @@ public class BaseController {
     }
 
     protected Response render(int code, String message, Object data) {
-        return new Response(code, message, data).setServerInfo(config.getServerName(), config.getServerPort());
+        return new Response(code, message, data);
     }
 
     protected Response render(int code,  Object data) {
