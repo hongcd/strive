@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @RestController
 @RequestMapping("/hello")
@@ -33,15 +34,29 @@ public class HelloController extends BaseController {
 
     @PostMapping("/book/listByIds")
     public Response<List<Book>> listByIds(@RequestBody List<String> ids) throws ExecutionException, InterruptedException {
-        List<Book> result;
-        try (HystrixRequestContext context = HystrixRequestContext.initializeContext()) {
-            result = new ArrayList<>();
-            for (int i = 0; i < ids.size() - 1; i++) {
-                result.add(new BookListByIdsCollapseCommand(bookServiceExtension, ids.get(i)).queue().get());
+        List<Book> result = new ArrayList<>();
+        List<Future<Book>> futures = new ArrayList<>();
+        try (HystrixRequestContext context = HystrixRequestContext.initializeContext();) {
+            for (String id : ids) {
+                futures.add(new BookListByIdsCollapseCommand(bookServiceExtension, id).queue());
             }
-            Thread.sleep(3000);
-            if (ids.size() > 1) {
-                result.add(new BookListByIdsCollapseCommand(bookServiceExtension, ids.get(ids.size() - 1)).queue().get());
+            for (Future<Book> future : futures) {
+                result.add(future.get());
+            }
+        }
+        return renderSuccess(result);
+    }
+
+    @PostMapping("/collapseListByIds")
+    public Response collapseListByIds(@RequestBody List<String> ids) throws ExecutionException, InterruptedException {
+        List<Book> result = new ArrayList<>();
+        List<Future<Book>> futures = new ArrayList<>();
+        try (HystrixRequestContext context = HystrixRequestContext.initializeContext()) {
+            for (String id : ids) {
+                futures.add(bookServiceExtension.annotationCollapseGet(id));
+            }
+            for (Future<Book> future : futures) {
+                result.add(future.get());
             }
         }
         return renderSuccess(result);

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: turbine
+server:
+  port: 2002
+management:
+  port: 2003
+eureka:
+  client:
+    service-url:
+      defaultZone: http://hongcd:123456@localhost:6571/eureka/,http://hongcd:123456@localhost:6572/eureka/
+  instance:
+    hostname: histrix-turbine
+    prefer-ip-address: true
+    instance-id: ${eureka.hostname}:${server.port}
+turbine:
+  app-config: PROVIDER
+  cluster-name-expression: new String("default")
+  combine-host-port: true

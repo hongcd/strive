@@ -4,7 +4,9 @@ import com.hongcd.strive.common.utils.Response;
 import com.hongcd.strive.consumer.command.book.BookFindAllCommand;
 import com.hongcd.strive.consumer.service.BookServiceExtension;
 import com.hongcd.strive.entity.book.Book;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +46,20 @@ public class BookServiceExtensionImpl implements BookServiceExtension {
     @Override
     public List<Book> listByIds(Collection<String> ids) {
         log.info(String.format("listByIds thread: %s", Thread.currentThread().getName()));
-        return Arrays.asList(restTemplate.getForObject("http://PROVIDER/book/listByIds", Book[].class, ids));
+        return Arrays.asList(restTemplate.postForObject("http://PROVIDER/book/listByIds", ids, Book[].class));
     }
+
+    @Override
+    @HystrixCollapser(collapserKey = "listByIdsCollapse", batchMethod = "collapseListByIds", collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "100")})
+    public Future<Book> annotationCollapseGet(String id) {
+        return null;
+    }
+
+    @HystrixCommand
+    public List<Book> collapseListByIds(List<String> ids) {
+        return listByIds(ids);
+    }
+
 
     public Response findAllError() {
         try {

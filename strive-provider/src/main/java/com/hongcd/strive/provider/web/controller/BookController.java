@@ -19,7 +19,7 @@ public class BookController extends BaseController {
         return renderSuccess(bookService.listAll());
     }
 
-    @GetMapping("/listByIds")
+    @PostMapping("/listByIds")
     public List<Book> listByIds(@RequestBody List<String> ids) {
         return bookService.listByIds(ids);
     }

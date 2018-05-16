@@ -14,4 +14,6 @@ public interface BookServiceExtension {
     Future<Book> getById(String id);
 
     List<Book> listByIds(Collection<String> ids);
+
+    Future<Book> annotationCollapseGet(String id);
 }
