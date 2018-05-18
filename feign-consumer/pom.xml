@@ -24,6 +24,12 @@
     <dependencies>
         <dependency>
             <groupId>com.hongcd.strive</groupId>
+            <artifactId>provider-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongcd.strive</groupId>
             <artifactId>strive-service</artifactId>
             <version>${project.version}</version>
         </dependency>

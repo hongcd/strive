@@ -33,11 +33,8 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
-  application:
-    name: provider
 eureka:
   instance:
-    hostname: provider
     prefer-ip-address: true
     instance-id: ${eureka.instance.hostname}:${server.port}
   client:

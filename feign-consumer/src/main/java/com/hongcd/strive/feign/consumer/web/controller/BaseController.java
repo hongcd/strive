@@ -1,4 +1,4 @@
-package com.hongcd.strive.provider.web.controller;
+package com.hongcd.strive.feign.consumer.web.controller;
 
 import com.hongcd.strive.common.constant.Config;
 import com.hongcd.strive.common.utils.Response;

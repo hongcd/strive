@@ -1,2 +1,8 @@
 server:
   port: 5873
+spring:
+  application:
+    name: ProviderSecond
+eureka:
+  instance:
+    hostname: ProviderSecond

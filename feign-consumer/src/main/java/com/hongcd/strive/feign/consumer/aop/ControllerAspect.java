@@ -1,4 +1,4 @@
-package com.hongcd.strive.provider.aop;
+package com.hongcd.strive.feign.consumer.aop;
 
 import com.hongcd.strive.common.constant.Config;
 import com.hongcd.strive.common.exception.BusinessException;
@@ -21,14 +21,13 @@ public class ControllerAspect {
     @Autowired
     private Config config;
 
-    @Pointcut("execution(public com.hongcd.strive.common.utils.Response com.hongcd.strive.provider.web.controller.*.*(..)) && (" +
+    @Pointcut("execution(com.hongcd.strive.common.utils.Response com.hongcd.strive.feign.consumer.web.controller.*.*(..)) && (" +
             "@annotation(org.springframework.web.bind.annotation.RequestMapping) ||" +
             "@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.PostMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.PutMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.DeleteMapping) ||" +
-            "@annotation(org.springframework.web.bind.annotation.PatchMapping) ||" +
-            "@annotation(Override))")
+            "@annotation(org.springframework.web.bind.annotation.PatchMapping))")
     public void controller() {}
 
     @Around("controller()")
@@ -45,8 +44,8 @@ public class ControllerAspect {
             response = new Response<>(Response.FAIL, throwable.getMessage(), null);
         } finally {
             Objects.requireNonNull(response).setServerInfo(config.getServerName(), config.getServerPort());
+            log.info(String.format("response: %s", response));
         }
-        log.info(String.format("resposne: %s", response));
         return response;
     }
 }

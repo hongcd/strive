@@ -1,6 +1,6 @@
 spring:
   application:
-    name: consumer
+    name: Consumer
   jpa:
     hibernate:
       ddl-auto: none
@@ -37,7 +37,7 @@ spring:
     useGlobalDataSourceStat: true
 eureka:
   instance:
-    hostname: consumer
+    hostname: Consumer
     prefer-ip-address: true
     instance-id: ${eureka.instance.hostname}:${server.port}
   client:
