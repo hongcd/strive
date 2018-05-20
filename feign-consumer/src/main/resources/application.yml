@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Feign Consumer
+    name: Feign_Consumer
   jpa:
     hibernate:
       ddl-auto: none
