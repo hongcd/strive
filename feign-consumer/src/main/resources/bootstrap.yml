@@ -3,4 +3,7 @@ spring:
     config:
       uri: http://localhost:8301
       label: master
-      profile: prod
+      profile: dev
+      name: app
+      username: hongcd
+      password: 123456

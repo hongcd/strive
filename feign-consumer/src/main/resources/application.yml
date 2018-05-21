@@ -1,11 +1,11 @@
 spring:
   application:
     name: Feign_Consumer
-  cloud:
-    config:
-      uri: http://localhost:8301
-      label: master
-      profile: prod
+#  cloud:
+#    config:
+#      uri: http://localhost:8301
+#      label: master
+#      profile: prod
   jpa:
     hibernate:
       ddl-auto: none

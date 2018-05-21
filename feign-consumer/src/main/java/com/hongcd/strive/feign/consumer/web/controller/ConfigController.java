@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 @RequestMapping("/config")
 public class ConfigController extends BaseController {
-//    @Value("${source}")
-//    private String source;
+    @Value("${source}")
+    private String source;
     @Autowired
     private Environment environment;
 
-//    @GetMapping("/getSource")
-//    public Response<String> getSource() {
-//        return renderSuccess(source);
-//    }
+    @GetMapping("/getSource")
+    public Response<String> getSource() {
+        return renderSuccess(source);
+    }
 
     @GetMapping("/getFileName")
     public Response<String> getFileName() {

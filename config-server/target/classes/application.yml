@@ -11,3 +11,8 @@ spring:
           username: ****
           password: ****
           search-paths: config
+          basedir: G:\\github\\
+security:
+  user:
+    name: hongcd
+    password: 123456
