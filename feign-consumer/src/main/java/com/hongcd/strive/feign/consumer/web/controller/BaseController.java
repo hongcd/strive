@@ -12,6 +12,10 @@ public class BaseController {
     @Autowired
     protected Config config;
 
+    protected <T> Response<T> renderSuccess() {
+        return render(Response.SUCCESS, null);
+    }
+
     protected <T> Response<T> renderSuccess(T data) {
         return render(Response.SUCCESS, data);
     }

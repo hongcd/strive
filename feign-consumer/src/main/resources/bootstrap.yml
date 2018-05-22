@@ -1,9 +1,30 @@
 spring:
   cloud:
     config:
-      uri: http://localhost:8301
+      discovery:
+        enabled: true
+        service-id: config-server
       label: master
       profile: dev
       name: app
       username: hongcd
       password: 123456
+      fail-fast: true
+      retry:
+#       重试次数
+        max-attempts: 6
+#       间隔时间
+        multiplier: 1.1
+#       重试间隔时间
+        initial-interval: 1000
+#       最大间隔时间
+        max-interval: 2000
+
+eureka:
+  instance:
+    hostname: Feign_Consumer
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://hongcd:123456@eureka-server:6571/eureka/, http://hongcd:123456@eureka-server:6572/eureka/

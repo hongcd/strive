@@ -1,5 +1,3 @@
-server:
-  port: 8301
 spring:
   application:
     name: config-server
@@ -8,11 +6,21 @@ spring:
       server:
         git:
           uri: https://github.com/hongcd/strive
-          username: ****
-          password: ****
+          username: ******
+          password: ******
           search-paths: config
           basedir: G:\\github\\
+
 security:
   user:
     name: hongcd
     password: 123456
+
+eureka:
+  instance:
+    hostname: config-server
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://hongcd:123456@eureka-server:6571/eureka/, http://hongcd:123456@eureka-server:6572/eureka/

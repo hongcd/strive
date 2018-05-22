@@ -2,17 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>feign-consumer</artifactId>
+
+    <groupId>com.hongcd.strive</groupId>
+    <artifactId>bus-rabbitmq</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Feign Consumer</name>
-    <description>基于Feign的消费者</description>
+    <name>bus-rabbitmq</name>
+    <description>Bus整合RabbitMQ</description>
 
     <parent>
-        <groupId>com.hongcd.strive</groupId>
-        <artifactId>strive-parent</artifactId>
-        <version>1.0.0</version>
-        <relativePath>../strive-parent/pom.xml</relativePath>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.12.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -23,20 +26,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hongcd.strive</groupId>
-            <artifactId>provider-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.retry</groupId>
-            <artifactId>spring-retry</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.hongcd.strive</groupId>
-            <artifactId>strive-service</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -50,18 +41,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
