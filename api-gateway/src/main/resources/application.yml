@@ -13,8 +13,8 @@ eureka:
     instance-id: ${eureka.instance.hostname}:${server.port}
 zuul:
   host:
-    max-total-connections: 100 #\u6700\u5927\u8FDE\u63A5\u603B\u6570
-    max-per-route-connections: 20 #\u5355\u4E2A\u8DEF\u7531\u6700\u5927\u8FDE\u63A5\u6570
+    max-total-connections: 100
+    max-per-route-connections: 20
   routes:
     striveConsumer:
       path: /feignConsumer/**
