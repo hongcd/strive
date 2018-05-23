@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.Serializable;
 
-@Configuration
+//@Configuration
 public class RabbitConfig implements Serializable {
     @Bean
     public Queue striveQueue() {
