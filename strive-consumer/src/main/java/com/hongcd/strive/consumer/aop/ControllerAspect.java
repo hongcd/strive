@@ -3,7 +3,7 @@ package com.hongcd.strive.consumer.aop;
 import com.hongcd.strive.common.constant.Config;
 import com.hongcd.strive.common.exception.BusinessException;
 import com.hongcd.strive.common.utils.Response;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,7 +13,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-@Log4j
+/**
+ * @author HongD
+ */
+@Slf4j
 @Aspect
 @Component
 public class ControllerAspect {

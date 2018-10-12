@@ -5,10 +5,11 @@ import java.util.List;
 
 /**
  * 通用服务接口
+ * @author HongD
  * @param <T>
  * @param <ID>
  */
-public interface GenericService<T, ID extends Serializable> {
+public interface Service<T, ID extends Serializable> {
     /**
      * 列表所有
      * @return

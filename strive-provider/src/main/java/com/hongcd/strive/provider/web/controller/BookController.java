@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @author HongD
+ * @date 2018-10-12
+ */
 @RestController
 @RequestMapping("/book")
 public class BookController extends BaseController implements ProviderBookService {
@@ -20,6 +24,7 @@ public class BookController extends BaseController implements ProviderBookServic
         return renderSuccess(bookService.listAll());
     }
 
+    @Override
     @PostMapping("/listByIds")
     public Response<List<Book>> listByIds(@RequestBody List<String> ids) {
         return renderSuccess(bookService.listByIds(ids));
@@ -32,6 +37,6 @@ public class BookController extends BaseController implements ProviderBookServic
      */
     @Override
     public Response<Book> getById(@PathVariable String id) {
-        return renderSuccess(bookService.getById(id));
+        return Response.success(bookService.getById(id));
     }
 }

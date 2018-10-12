@@ -3,11 +3,14 @@ package com.hongcd.strive.consumer.command.book;
 import com.hongcd.strive.common.utils.Response;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-@Log4j
+/**
+ * @author HongD
+ */
+@Slf4j
 public class BookFindAllCommand extends HystrixCommand<Response> {
     private RestTemplate restTemplate;
 

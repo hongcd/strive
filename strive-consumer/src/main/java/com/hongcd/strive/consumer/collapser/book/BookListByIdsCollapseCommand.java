@@ -7,13 +7,16 @@ import com.netflix.hystrix.HystrixCollapser;
 import com.netflix.hystrix.HystrixCollapserKey;
 import com.netflix.hystrix.HystrixCollapserProperties;
 import com.netflix.hystrix.HystrixCommand;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Log4j
+/**
+ * @author HongD
+ */
+@Slf4j
 public class BookListByIdsCollapseCommand extends HystrixCollapser<List<Book>, Book, String> {
     private BookServiceExtension bookServiceExtension;
     private String id;

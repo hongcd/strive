@@ -13,8 +13,15 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Druid数据源配置
+ * @author HongD
+ * @date 2018-10-12
+ */
 @Configuration
+@SuppressWarnings("unchecked")
 public class DruidConfiguration {
+
     @Bean
     public ServletRegistrationBean druidServlet() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
@@ -24,8 +31,7 @@ public class DruidConfiguration {
         initParams.put("loginUsername", "admin");
         initParams.put("loginPassword", "123456");
         initParams.put("resetEnable", "false");
-        initParams.put("allow", "192.168.1.25");
-//        initParams.put("deny", "192.168.1.1");
+        initParams.put("allow", "10.112.11.202");
         servletRegistrationBean.setInitParameters(initParams);
         return servletRegistrationBean;
     }

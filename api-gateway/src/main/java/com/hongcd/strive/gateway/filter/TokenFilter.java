@@ -7,6 +7,9 @@ import com.netflix.zuul.context.RequestContext;
 
 import java.util.Objects;
 
+/**
+ * @author HongD
+ */
 public class TokenFilter extends BaseFilter {
 
     @Override

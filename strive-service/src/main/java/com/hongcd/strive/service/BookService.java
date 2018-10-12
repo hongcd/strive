@@ -8,6 +8,6 @@ import java.util.List;
 /**
  * 图书服务接口
  */
-public interface BookService extends GenericService<Book, String> {
+public interface BookService extends Service<Book, String> {
     List<Book> listByIds(Collection<String> ids);
 }
